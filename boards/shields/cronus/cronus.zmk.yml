@@ -1,0 +1,13 @@
+file_format: "1"
+id: cronus
+name: cronus
+type: shield
+url: https://github.com/dibaltic/zmk_cronus
+requires: [pro_micro]
+exposes: [nice_view]
+features:
+  - keys
+  - display
+siblings:
+  - cronus_left
+  - cronus_right
