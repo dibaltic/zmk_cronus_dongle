@@ -107,7 +107,7 @@
 
         backspace {
             bindings = <&kp BACKSPACE>;
-            key-positions = <16 17>;
+            key-positions = <23 24'>;
             layers = <0>;
         };
 
