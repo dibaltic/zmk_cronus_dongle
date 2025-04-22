@@ -3,12 +3,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
-    cronus_physical_layout: &cronus_physical_layout {
-        compatible = "zmk,physical-layout";
-        display-name = "Cronus";
-        transform = <&default_transform>;
-    }; 
-
     chosen {
         zmk,kscan = &mock_kscan;
         zmk,physical-layout = &cronus_physical_layout;
