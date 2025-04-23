@@ -67,14 +67,14 @@
 };
 
     behaviors {
-         layer_enter: layer_enter {
+         layer_enter: layer_sk {
          compatible = "zmk,behavior-hold-tap";
-         label = "layer_enter";
+         label = "layer_sk";
          flavor = "tap-preferred";
          #binding-cells = <2>;
          tapping-term-ms = <200>;
-         require-prior-idle-ms = <100>;
-         bindings = <&mo>, <&kp>;
+         require-prior-idle-ms = <200>;
+         bindings = <&mo>, <&sk>;
        };
 };
 
@@ -112,7 +112,7 @@
         };
 
         GameLT {
-            bindings = <&to 0>;
+            bindings = <&to 6>;
             key-positions = <26 27>;
             layers = <0>;
         };
@@ -120,13 +120,19 @@
         esc {
             bindings = <&kp ESCAPE>;
             key-positions = <4 14>;
-            layers = <0 1 2 3 4 5>;
+            layers = <0 2 3 4 5 6>;
         };
 
         del {
             bindings = <&kp DEL>;
             key-positions = <5 15>;
             layers = <0>;
+        };
+
+        enter {
+            bindings = <&kp ENTER>;
+            key-positions = <22 21>;
+            layers = <0 2>;
         };
 
         LBrac {
@@ -188,41 +194,53 @@
             key-positions = <2 7>;
             layers = <0>;
         };
+        
+        escGame {
+            bindings = <&kp ESCAPE>;
+            key-positions = <1 2>;
+            layers = <6>;
+        };
 
         GameG {
             bindings = <&kp G>;
             key-positions = <4 14>;
-            layers = <5>;
+            layers = <6>;
         };
 
         GameB {
             bindings = <&kp B>;
             key-positions = <3 4>;
-            layers = <5>;
+            layers = <6>;
         };
 
         WinClose {
             bindings = <&kp LA(F4)>;
             key-positions = <8 9>;
-            layers = <5 1>;
+            layers = <5 6>;
         };
 
         GameV {
             bindings = <&kp V>;
             key-positions = <22 21>;
-            layers = <5>;
+            layers = <6>;
         };
 
         GameEnter {
             bindings = <&kp ENTER>;
             key-positions = <26 27>;
-            layers = <5>;
+            layers = <6>;
         };
 
         Reset {
             bindings = <&bootloader>;
             key-positions = <25 24>;
             layers = <4>;
+        };
+
+        screenshot {
+            bindings = <&kp PRINTSCREEN>;
+            key-positions = <12 13>;
+            layers = <5>;
         };
     };
 
@@ -234,34 +252,34 @@
 &kp X  &kp C  &kp L  &kp F   &kp P     &kp K   &kp Y   &kp O    &kp U      &kp APOS
 &kp R  &kp S  &kp N  &kp T   &kp B     &kp J   &kp H   &kp E    &kp I      &kp A
        &kp W  &kp M  &kp G                     &kp D   &kp DOT  &kp COMMA
-       &layer_enter 1 ENTER  &lt 3 SPACE    &repeat_mo 2 0  &layer_shift 4 RSHIFT
+       &layer_sk 5 1  &lt 3 SPACE    &repeat_mo 2 0  &layer_shift 4 RSHIFT
             >;
         };
 
         sym {
             bindings = <
-&kp LA(LC(TAB))  &kp LC(X)    &kp LC(Z)        &kp LC(Y)    &kp GREATER_THAN    &kp PERCENT  &kp DOLLAR     &kp AT_SIGN   &kp AMPERSAND    &kp SEMICOLON
-&kp LG(L)        &kp LC(F)    &kp LC(C)        &kp LC(V)    &kp LESS_THAN       &kp HASH     &kp SLASH      &kp QUESTION  &kp EXCLAMATION  &kp MINUS
-                 &kp LC(TAB)  &kp LC(LS(TAB))  &kp LC(TAB)                                   &kp BACKSLASH  &kp CARET     &kp TILDE
-                                               &trans       &trans              &trans       &trans
+&none  &kp TILDE  &kp CARET  &kp GREATER_THAN  &none    &none  &kp SLASH  &kp BACKSLASH  &kp SEMI         &none
+&none  &kp AMPS   &kp HASH   &kp LESS_THAN     &none    &none  &kp AT     &kp QUESTION   &kp EXCLAMATION  &kp MINUS
+       &none      &none      &none                             &none      &none          &none
+                             &none             &none    &none  &none
             >;
         };
 
         num {
             bindings = <
-&none  &kp C_BRI_UP   &kp C_VOLUME_UP    &kp ASTERISK  &none        &kp PERIOD  &kp N7  &kp N8  &kp N9  &kp PLUS
-&none  &kp C_BRI_DEC  &kp C_VOLUME_DOWN  &kp SLASH     &kp EQUAL    &kp N0      &kp N4  &kp N5  &kp N6  &kp MINUS
-       &none          &none              &none                                  &kp N1  &kp N2  &kp N3
-                                         &trans        &trans       &trans      &trans
+&none        &kp EQUAL   &kp MINUS  &kp PLUS   &none     &none   &kp N7  &kp N8  &kp N9  &none
+&kp PERCENT  &kp DOLLAR  &kp ASTRK  &kp SLASH  &none     &kp N0  &kp N4  &kp N5  &kp N6  &kp PERIOD
+             &none       &none      &none                        &kp N1  &kp N2  &kp N3
+                                    &trans     &trans    &trans  &trans
             >;
         };
 
         nav {
             bindings = <
-&trans  &kp HOME  &kp UP    &kp END    &kp PAGE_UP      &mkp MB4   &msc SCRL_DOWN  &mmv MOVE_UP    &msc SCRL_UP     &trans
-&trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp PAGE_DOWN    &mkp MB5   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans
-        &trans    &trans    &trans                                 &msc SCRL_LEFT  &trans          &msc SCRL_RIGHT
-                            &trans     &trans           &mkp LCLK  &mkp RCLK
+&none  &kp HOME  &kp UP    &kp END    &kp PAGE_UP      &mkp MB4   &msc SCRL_DOWN  &mmv MOVE_UP    &msc SCRL_UP     &none
+&none  &kp LEFT  &kp DOWN  &kp RIGHT  &kp PAGE_DOWN    &mkp MB5   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none
+       &none     &none     &none                                  &msc SCRL_LEFT  &none           &msc SCRL_RIGHT
+                           &trans     &trans           &mkp LCLK  &mkp RCLK
             >;
         };
 
@@ -271,6 +289,15 @@
 &sk LEFT_SHIFT  &sk LEFT_ALT  &sk LCTRL     &sk LEFT_GUI  &kp F11       &kp F12  &sk RIGHT_GUI  &sk RCTRL       &sk RIGHT_ALT  &sk RIGHT_SHIFT
                 &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 3                         &bt BT_CLR     &bt BT_CLR_ALL  &none
                                             &bt BT_PRV    &bt BT_NXT    &none    &trans
+            >;
+        };
+
+        shortcut {
+            bindings = <
+&kp LA(LC(TAB))  &kp LC(X)    &kp LC(Z)        &kp LC(Y)    &kp C_VOLUME_UP      &none   &none   &none  &none  &none
+&kp LG(L)        &kp LC(F)    &kp LC(C)        &kp LC(V)    &kp C_VOLUME_DOWN    &none   &none   &none  &none  &none
+                 &kp LC(TAB)  &kp LC(LS(TAB))  &kp LC(TAB)                               &none   &none  &none
+                                               &trans       &trans               &trans  &trans
             >;
         };
 
