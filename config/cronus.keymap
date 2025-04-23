@@ -277,7 +277,7 @@
         base {
             bindings = <
 &kp X  &kp C  &kp L  &kp F   &kp P     &kp K   &kp Y   &kp O    &kp U      &kp APOS
-&kp R  &kp S  &kp N  &kp T   &kp B     &kp J   &kp H   &kp E    &kp I      &kp A
+HRML(R,    S,     N,    T)   &kp B     &kp J   HRMR( H,   E,       I,     A)
        &kp W  &kp M  &kp G                     &kp D   &kp DOT  &kp COMMA
        &layer_sl 5 1  &lt 3 SPACE    &repeat_mo 2 0  &layer_shift 4 RSHIFT
             >;
