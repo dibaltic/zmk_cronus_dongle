@@ -67,7 +67,7 @@
 };
 
     behaviors {
-         layer_enter: layer_sk {
+         layer_sk: layer_sk {
          compatible = "zmk,behavior-hold-tap";
          label = "layer_sk";
          flavor = "tap-preferred";
