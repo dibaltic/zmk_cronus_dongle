@@ -1,0 +1,6 @@
+1) [Fork this repository](https://github.com/dibaltic/zmk_cronus_dongle/fork)
+2) Enable actions on your fork. (click on the actions tab and enable actions)
+3) Edit the `zmk-cronus/config/cronus.keymap` file to your liking. (See the [ZMK Codes reference](https://zmk.dev/docs/codes))
+4) When you push the changes an action will start that will build your firmware. If the action is successful the file will be available in it's artifacts within the job summary. Check the [ZMK docs](https://zmk.dev/docs/user-setup#installing-the-firmware) if you need a visual guide.
+
+If you'd like to use [nickcoutsos keymap editor](https://nickcoutsos.github.io/keymap-editor/) I've found the hummingbird layout to work with this keyboard in the editor. 
